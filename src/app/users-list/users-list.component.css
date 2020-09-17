@@ -1,0 +1,12 @@
+div.wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.item {
+  width: 180px;
+  display: inline-block;
+}
+.gray {
+  background-color: #ccc;
+}
