@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {User} from './shared/user';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class UsersService {
 
   constructor() { }
 
-  usersList: Array<object> = [
+  usersList: User[] = [
     {
       id: 1,
       name: 'Leanne Graham',
@@ -104,7 +105,8 @@ export class UsersService {
     }
   ];
 
-  getUsersList() {
+  // tslint:disable-next-line:typedef
+  getUsersList(): User[] {
     return this.usersList;
   }
 }

@@ -10,3 +10,8 @@ div.wrapper {
 .gray {
   background-color: #ccc;
 }
+.search-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
