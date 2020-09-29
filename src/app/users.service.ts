@@ -109,4 +109,16 @@ export class UsersService {
   getUsersList(): User[] {
     return this.usersList;
   }
+
+  findUser(value: string): User[] {
+    return this.usersList.filter(item => {
+      return item.name.toLowerCase().includes(value.toLowerCase());
+    });
+  }
+
+  // tslint:disable-next-line:typedef
+  sortUsers(value: string) {
+    const direction = !!parseInt(value, 10) ? -1 : 1;
+    return this.usersList.sort((a, b) => direction * (a.username > b.username ? 1 : -1));
+  }
 }

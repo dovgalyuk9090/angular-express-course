@@ -3,15 +3,20 @@
   <div class="search-wrapper">
     <mat-form-field appearance="outline">
       <mat-label>Sort</mat-label>
-      <mat-select>
+      <mat-select #list (selectionChange)="sort(list.value)">
         <mat-option value="0">От А до Я</mat-option>
         <mat-option value="1">От Я до А</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Search</mat-label>
-      <input matInput placeholder="Type user">
+      <input matInput placeholder="Type user" #searchInfo (keyup.enter)="search(searchInfo.value)">
+      <mat-icon matSuffix (click)="search(searchInfo.value)">search</mat-icon>
     </mat-form-field>
+  </div>
+  <div class="title">
+    <span class="name-info">Name</span>
+    <span class="username">UserName</span>
   </div>
   <mat-selection-list #users>
     <mat-list-option
@@ -19,8 +24,8 @@
       [ngClass]="{gray: i%2}"
     >
       <div>
-        <span class="item">{{user.name}}</span>
         <span class="item">{{user.username}}</span>
+        <span class="item">{{user.name}}</span>
         <span *ngIf="user.role === 'Admin'" class="item">{{user.role}}</span>
       </div>
     </mat-list-option>

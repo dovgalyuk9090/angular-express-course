@@ -19,4 +19,15 @@ export class UsersListComponent implements OnInit {
     this.usersList = this.userService.getUsersList();
   }
 
+  // tslint:disable-next-line:typedef
+  search(value: string) {
+    this.usersList = this.userService.findUser(value);
+  }
+
+  // tslint:disable-next-line:typedef
+  sort(value: string) {
+    console.log(value);
+    this.usersList = this.userService.sortUsers(value);
+  }
+
 }
